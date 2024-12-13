@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +13,59 @@ namespace Practice
         
         static void Main(string[] args)
         {
-            //implicit casting
-            int digit = 5;
+            do
+            {
+                double num1 = 0;
+                double num2 = 0;
+                double result = 0;
 
-            double doublenumber = digit;
-            Console.WriteLine(digit);
-            Console.WriteLine(doublenumber);
+                Console.WriteLine("------------------");
+                Console.WriteLine("Calculator Program");
+                Console.WriteLine("------------------");
 
-            //explicit casting
-            double newvalue = 45.87;
-            int intnumber = (int)newvalue;
-            Console.WriteLine(intnumber);
+                Console.Write("Enter a number: ");
+                num1 = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Enter another number: ");
+                num2 = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Enter an option: ");
+                Console.WriteLine("+ : Add");
+                Console.WriteLine("- : Subtract");
+                Console.WriteLine("* : Multiply");
+                Console.WriteLine("/ : Divide");
+                Console.Write("Enter an operation: ");
 
 
-        }
+                switch (Console.ReadLine())
+                {
+                    case "+":
+                        result = num1 + num2;
+                        Console.WriteLine($"Your result: {num1} + {num2} = " + result);
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        Console.WriteLine($"Your result: {num1} - {num2} = " + result);
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        Console.WriteLine($"Your result: {num1} * {num2} = " + result);
+                        break;
+                    case "/":
+                        result = num1 / num2;
+                        Console.WriteLine($"Your result: {num1} / {num2} = " + result);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid operator");
+                        break;
+                        
+                        //Catch(Exception)
+                }
+                Console.Write("Reset? (Y = yes, N = No): ");
+            } while (Console.ReadLine().ToUpper() == "Y");
 
-        static void Student()
-        {
-            Console.WriteLine("What is your name?");
-            string name= Console.ReadLine();
-            Console.WriteLine("Your name is" + name);
-
-            Console.ReadLine();
+            Console.WriteLine("Bye!");
+            Console.ReadKey();
         }
 
     }
